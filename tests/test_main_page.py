@@ -18,9 +18,9 @@ class TestMainPage:
                               [7, MPL.MENU_QUESTION, MPL.MENU_ANSWER]]
                              )
     def test_questions(self, page_driver, num, locator_q, locator_a):
-        MainPageTest = MainPage(page_driver)
-        element1 = MainPageTest.modify_locators(locator_q, num)
-        MainPageTest.get_question_to_check(element1)
-        element2 = MainPageTest.modify_locators(locator_a, num)
+        main_page_test = MainPage(page_driver)
+        element1 = main_page_test.modify_locators(locator_q, num)
+        main_page_test.get_question_to_check(element1)
+        element2 = main_page_test.modify_locators(locator_a, num)
         with allure.step("Сравниваем текст ответа с эталоном"):
-            assert MainPageTest.get_element_text(element2) == ANSWER[num]
+            assert main_page_test.get_element_text(element2) == ANSWER[num]

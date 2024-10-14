@@ -6,6 +6,7 @@ from pages.redirect_page import RedirectPage
 
 class OrderPage(RedirectPage,BasePage):
 
+    @allure.step('Переход на страницу')
     def redir_to_order_page(self,locator):
         self.redirect_to(locator)
 
@@ -30,13 +31,15 @@ class OrderPage(RedirectPage,BasePage):
     def set_phone(self,phone):
         self.set_element_text(OPL.PHONE_NBR_LOCATOR,phone)
 
+    @allure.step('Клик по кнопке "Далее"')
     def click_next_btn(self):
         self.click_on_element(OPL.NEXT_BUTTON_LOCATOR)
 
-    @allure.step('Выбор даты доставки')
+    @allure.step('Клик по календарю')
     def set_place_to_delivery(self):
         self.click_on_element(OPL.PLACE_DELIVERY_LOCATOR)
 
+    @allure.step('Выбор даты доставки')
     def set_date_to_delivery(self):
         self.click_on_element(OPL.DATE_LOCATOR)
 
@@ -53,7 +56,7 @@ class OrderPage(RedirectPage,BasePage):
     def set_comment(self,comment):
         self.set_element_text(OPL.COMMENT_LOCATOR,comment)
 
-
+    @allure.step('Получение текста Заказ оформлен"')
     def confirm_order(self):
         self.click_on_element(OPL.ORDER_BUTTON_LOCATOR)
         self.click_on_element(OPL.YES_BTN_LOCATOR)

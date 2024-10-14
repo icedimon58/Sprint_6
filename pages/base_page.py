@@ -12,6 +12,12 @@ class BasePage:
          (expected_conditions.element_to_be_clickable(locator)))
         self.driver.find_element(*locator).click()
 
+    def return_url(self):
+        return self.driver.current_url
+
+    def switch_window(self):
+        self.driver.switch_to.window(self.driver.window_handles[-1])
+
     def find_element_on_page(self, locator):
         WebDriverWait(self.driver, 3).until(
             expected_conditions.visibility_of_element_located(locator))
