@@ -2,11 +2,13 @@ import allure
 import pytest
 from pages.main_page import MainPage
 from locators.main_page_locators import MainPageLocators as MPL
-from data import ANSWER
+from data import ANSWER, PAGE_URL
 
 
 class TestMainPage:
     @allure.description('Проверка ответа на вопрос')
+    @allure.title('Тест вопросов с параметрами')
+    @allure.link(PAGE_URL, name='Тестовая страница "Яндекс.Самокат"')
     @pytest.mark.parametrize('num,locator_q,locator_a',
                              [[0, MPL.MENU_QUESTION, MPL.MENU_ANSWER],
                               [1, MPL.MENU_QUESTION, MPL.MENU_ANSWER],

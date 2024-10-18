@@ -56,7 +56,7 @@ class OrderPage(RedirectPage,BasePage):
     def set_comment(self,comment):
         self.set_element_text(OPL.COMMENT_LOCATOR,comment)
 
-    @allure.step('Получение текста Заказ оформлен"')
+    @allure.step('Получение текста "Заказ оформлен"')
     def confirm_order(self):
         self.click_on_element(OPL.ORDER_BUTTON_LOCATOR)
         self.click_on_element(OPL.YES_BTN_LOCATOR)
