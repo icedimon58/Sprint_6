@@ -1,13 +1,15 @@
 import allure
 import pytest
 
-from data import TEST_DATA_1,TEST_DATA_2
+from data import TEST_DATA_1, TEST_DATA_2, PAGE_URL
 from pages.order_page import OrderPage
 from locators.redirect_page_locators import RedirectionPageLocators as RPL
 
 
 class TestOrderPage:
     @allure.description('Проверка оформления заказа через кнопку')
+    @allure.title('Тест страницы заказа с параметрами')
+    @allure.link(PAGE_URL, name='Тестовая страница "Яндекс.Самокат"')
     @pytest.mark.parametrize('locator,name,fam,sity,phone,comment', [
         (RPL.ORDER_BUTTON_BIG,*TEST_DATA_1),
         (RPL.ORDER_BUTTON_BIG, *TEST_DATA_2),

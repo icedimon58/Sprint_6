@@ -2,6 +2,7 @@ import allure
 from pages.base_page import BasePage
 from locators.redirect_page_locators import RedirectionPageLocators
 
+
 class RedirectPage(BasePage):
 
     @allure.step('Переход по элементу')
